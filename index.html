@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FullTilt — NeurIPS 2026</title>
+  <meta name="description" content="At FullTilt: Real-Time Open-Set 3D Macromolecule Detection Directly from Tilted 2D Projections. NeurIPS 2026.">
+  <meta property="og:title" content="At FullTilt: Real-Time Open-Set 3D Macromolecule Detection Directly from Tilted 2D Projections">
+  <meta property="og:description" content="Open-set 3D particle picking in cryo-ET, directly from the aligned 2D tilt-series — hundreds to thousands of times faster than tomogram-based methods.">
+  <meta property="og:image" content="static/img/framework.webp">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23d4566b'/%3E%3Cg stroke='%23fff' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M16 6v20'/%3E%3Cpath d='M9 8l14 16' opacity='.7'/%3E%3Cpath d='M23 8L9 24' opacity='.7'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Math&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script>try { if (localStorage.getItem("ft-theme") === "dark") document.documentElement.dataset.theme = "dark"; } catch (e) {}</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span>FullTilt</a>
+    <div class="nav-right">
+    <nav class="toc" aria-label="Sections">
+      <a href="#demo">Demo</a>
+      <a href="#abstract">Abstract</a>
+      <a href="#idea">Idea</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#bibtex">BibTeX</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" title="Toggle theme">
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+    </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero wrap">
+    <p class="venue"><span class="venue-dot" aria-hidden="true"></span><strong>NeurIPS 2026</strong><span class="venue-sep" aria-hidden="true"></span><span class="venue-track">Main Track</span></p>
+    <h1 class="title">
+      <span class="title-lead">At <em>FullTilt</em></span>
+      <span class="title-sub">Real-Time Open-Set 3D Macromolecule Detection Directly from Tilted 2D&nbsp;Projections</span>
+    </h1>
+
+    <div class="authors">
+      <div class="author">
+        <a href="mailto:ming-yang.ho@duke.edu">Ming-Yang Ho</a>
+        <a class="orcid" href="https://orcid.org/0000-0002-1767-7494" aria-label="ORCID of Ming-Yang Ho" title="ORCID">iD</a>
+      </div>
+      <div class="author">
+        <a href="mailto:alberto.bartesaghi@duke.edu">Alberto Bartesaghi</a>
+        <a class="orcid" href="https://orcid.org/0000-0002-7360-1523" aria-label="ORCID of Alberto Bartesaghi" title="ORCID">iD</a>
+      </div>
+    </div>
+    <p class="affil">Duke University</p>
+
+    <div class="links">
+      <a class="btn" href="https://arxiv.org/pdf/2604.10766">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M14 3v5h5M10 13h6M10 17h6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        Paper
+      </a>
+      <a class="btn" href="https://arxiv.org/abs/2604.10766">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        arXiv
+      </a>
+      <!-- Code not released yet: point href at the repo and drop data-soon/aria-disabled once public -->
+      <a class="btn btn-primary" href="https://github.com/Kaminyou/FullTilt" data-soon="Coming soon" aria-disabled="true" aria-label="Code, coming soon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.1-1.46-1.1-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+        Code
+      </a>
+      <a class="btn" href="#bibtex">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        BibTeX
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ Interactive tilt-series viewer ============ -->
+  <section id="demo" class="demo">
+    <div class="wrap">
+      <div class="tagline">
+        <p class="tagline-main">The <em>first</em> end-to-end cryo&#8209;ET 3D&nbsp;detector that works directly on the&nbsp;tilt-series.</p>
+        <p class="tagline-sub">No tomogram inference, no sliding windows: all tilt images go in together, and 3D particle coordinates come out in under a second.</p>
+      </div>
+      <div class="viewer" data-frames="41" data-cols="7" data-w="340" data-h="480" data-start="-60" data-step="3">
+        <div class="viewer-panels">
+          <figure class="panel">
+            <div class="panel-media">
+              <img src="static/tilt/10304_raw_0deg.jpg" alt="Raw aligned tilt image of EMPIAR-10304 tilt1" width="340" height="480">
+              <canvas data-src="static/tilt/10304_raw.webp" width="340" height="480" aria-hidden="true"></canvas>
+            </div>
+            <figcaption><span class="swatch swatch-none" aria-hidden="true"></span>Input tilt-series</figcaption>
+          </figure>
+          <figure class="panel">
+            <div class="panel-media">
+              <img src="static/tilt/10304_gt_0deg.jpg" alt="Ground-truth ribosome locations projected onto the tilt image" width="340" height="480">
+              <canvas data-src="static/tilt/10304_gt.webp" width="340" height="480" aria-hidden="true"></canvas>
+            </div>
+            <figcaption><span class="swatch swatch-gt" aria-hidden="true"></span>Ground truth</figcaption>
+          </figure>
+          <figure class="panel panel-ours">
+            <div class="panel-media">
+              <img src="static/tilt/10304_det_0deg.jpg" alt="FullTilt 3D detections projected onto the tilt image" width="340" height="480">
+              <canvas data-src="static/tilt/10304_det.webp" width="340" height="480" aria-hidden="true"></canvas>
+            </div>
+            <figcaption><span class="swatch swatch-ft" aria-hidden="true"></span>FullTilt <span class="muted">&middot; 1 prompt</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="viewer-controls">
+          <button class="play" type="button" aria-label="Pause">
+            <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg>
+            <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.3-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5z"/></svg>
+          </button>
+          <div class="gauge" aria-hidden="true">
+            <svg viewBox="-34 -34 68 40">
+              <path class="gauge-arc" d="M-28.6 -16.5 A33 33 0 0 1 28.6 -16.5"/>
+              <line class="gauge-zero" x1="0" y1="0" x2="0" y2="-31"/>
+              <line class="gauge-needle" x1="0" y1="0" x2="0" y2="-29"/>
+              <circle class="gauge-hub" r="2.4"/>
+            </svg>
+          </div>
+          <label class="scrub">
+            <span class="sr-only">Tilt angle</span>
+            <input type="range" min="0" max="40" value="20" step="1">
+            <span class="scrub-ticks" aria-hidden="true"><span>&minus;60&deg;</span><span>0&deg;</span><span>+60&deg;</span></span>
+          </label>
+          <output class="angle" aria-live="off">0&deg;</output>
+        </div>
+
+        <p class="viewer-note">
+          <strong>EMPIAR-10304 &middot; <code>tilt1</code></strong>, purified <em>E.&nbsp;coli</em> 70S ribosomes.
+          Scrub or play the tilt-series. FullTilt reads all 41 tilt images at once and predicts 3D particle
+          centers; we project them back onto each tilt image. The <span class="kbd-blue">blue</span> box
+          is the single visual prompt. Use <kbd>&larr;</kbd> <kbd>&rarr;</kbd> to step, <kbd>space</kbd> to play or pause.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Headline numbers ============ -->
+  <section class="stats wrap" aria-label="Key numbers on EMPIAR-10304">
+    <div class="stat">
+      <div class="stat-value">0.23<span class="unit">s</span></div>
+      <div class="stat-label">for a full tilt-series on EMPIAR-10304</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">&gt;7,490<span class="unit">&times;</span></div>
+      <div class="stat-label">faster than TomoTwin, with higher F1</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">8.6<span class="unit">&times;</span></div>
+      <div class="stat-label">less peak VRAM (2.4 GB vs 20.8 GB)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">0</div>
+      <div class="stat-label">retraining for new targets &mdash; open-set, zero-shot</div>
+    </div>
+  </section>
+
+  <!-- ============ Abstract ============ -->
+  <section id="abstract" class="section wrap narrow">
+    <h2 class="h-section"><span class="h-num">01</span>Abstract</h2>
+    <p class="lede">
+      Open-set 3D macromolecule detection in cryogenic electron tomography eliminates the need for target-specific
+      model retraining. However, strict VRAM constraints prohibit processing an entire 3D tomogram, forcing current
+      methods to rely on slow sliding-window inference over extracted subvolumes.
+    </p>
+    <p>
+      To overcome this, we propose <strong>FullTilt</strong>, an end-to-end framework that redefines 3D detection by
+      operating directly on aligned 2D tilt-series. Because a tilt-series contains significantly fewer images than
+      slices in a reconstructed tomogram, FullTilt eliminates redundant volumetric computation, accelerating inference
+      by orders of magnitude. To process the entire tilt-series simultaneously, we introduce a tilt-series encoder to
+      efficiently fuse cross-view information. We further propose a multiclass visual prompt encoder for flexible
+      prompting, a tilt-aware query initializer to effectively anchor 3D queries, and an auxiliary geometric primitives
+      module to enhance the model's understanding of multi-view geometry while improving robustness to adverse imaging
+      artifacts. Extensive evaluations on three real-world datasets demonstrate that FullTilt achieves state-of-the-art
+      zero-shot performance while drastically reducing runtime and VRAM requirements, paving the way for rapid,
+      large-scale visual proteomics analysis.
+    </p>
+  </section>
+
+  <!-- ============ Idea ============ -->
+  <section id="idea" class="section wrap">
+    <div class="narrow">
+      <h2 class="h-section"><span class="h-num">02</span>Skip the tomogram</h2>
+      <p>
+        A tomogram is reconstructed <em>from</em> the aligned tilt-series, so the tilt-series already holds at least as
+        much information &mdash; in far fewer images (e.g. 41 tilts versus 256 depth slices). Existing open-set pickers
+        still work on the reconstructed volume, sliding a model over thousands of subvolumes or slices.
+        FullTilt instead maps the 2D tilt-series to 3D detections in <strong>one forward pass</strong>.
+      </p>
+    </div>
+
+    <figure class="figure">
+      <div class="figure-card"><img src="static/img/compare.webp" alt="Four detection pipelines: 3D models on tomogram subvolumes, 2D models on tomogram slices, 2D detection with back-projection, and FullTilt's end-to-end 2D-to-3D model." loading="lazy" width="2200" height="628"></div>
+      <figcaption>
+        <strong>Comparison of detection mechanisms.</strong> (a) TomoTwin and ProPicker slide 3D models over subvolumes;
+        (b) CryoSAM runs SAM over orthogonal slices; (c) Zeng et&nbsp;al. detect in each tilt image and back-project;
+        (d) FullTilt processes the whole tilt-series end-to-end.
+      </figcaption>
+    </figure>
+
+    <div class="narrow">
+      <p>
+        The catch: cryo-ET projections have an extremely low signal-to-noise ratio. A particle is often only
+        recognizable across <em>consecutive</em> tilts, particles overlap because each image projects through the full
+        sample depth, and high tilts suffer occlusion and uneven illumination. Per-image detectors and off-the-shelf
+        multi-view 3D detectors (DETR3D, PETR) break down here.
+      </p>
+    </div>
+
+    <figure class="figure">
+      <div class="figure-card"><img src="static/img/example.webp" alt="Three tilt images at −45°, 0° and 45° with thyroglobulin particles boxed, next to one tomogram slice." loading="lazy" width="2149" height="576"></div>
+      <figcaption>
+        <strong>2D tilt-series vs. 3D tomogram</strong> (CZII, <code>TS_6_6</code>). In single tilt images, particles are
+        noisy, overlapping and sometimes occluded (red arrow); in a tomogram slice they are separated in depth.
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ Method ============ -->
+  <section id="method" class="section section-tint">
+    <div class="wrap">
+      <div class="narrow">
+        <h2 class="h-section"><span class="h-num">03</span>Method</h2>
+        <p>
+          FullTilt is a DETR-style encoder&ndash;decoder. A 2D backbone encodes every tilt image; four new components turn
+          those 2D features into 3D detections of whatever the user prompts for.
+        </p>
+      </div>
+
+      <figure class="figure figure-wide">
+        <div class="figure-card"><img src="static/img/framework.webp" alt="FullTilt architecture: 2D backbone, tilt-series encoder, multiclass visual prompt encoder, tilt-aware query initializer and 3D decoder." loading="lazy" width="2200" height="1245"></div>
+        <figcaption><strong>FullTilt architecture.</strong> (a) Overview. (b) Tilt-series encoder. (c) Multiclass visual prompt encoder. (d) 3D decoder.</figcaption>
+      </figure>
+
+      <div class="components">
+        <article class="comp comp-tilt">
+          <h3><span class="sym">&#x2130;<sub>Tilt</sub></span>Tilt-series encoder</h3>
+          <p>Alternates local attention within each image with <em>global row attention</em> across tilts. Because the
+            series is aligned to a vertical tilt axis, a particle stays on the same row in every image &mdash; so
+            cross-view attention only needs to look along rows.</p>
+        </article>
+        <article class="comp comp-prompt">
+          <h3><span class="sym">&#x2130;<sub>Prompt</sub></span>Multiclass visual prompt encoder</h3>
+          <p>Turns any number of 2D box prompts, for any number of classes, into one prototype per class using masked
+            attention. It handles images with no prompts at all, and plugs into any DETR-like detector.</p>
+        </article>
+        <article class="comp comp-init">
+          <h3><span class="sym">&#x2110;<sub>Tilt</sub></span>Tilt-aware query initializer</h3>
+          <p>At a 0&deg; tilt a particle's projection gives its <i>x</i> and <i>y</i> directly. FullTilt picks 3D anchors
+            from the prototype-matched peaks of the near-zero tilt, starting depth at the mid-plane.</p>
+        </article>
+        <article class="comp comp-geo">
+          <h3><span class="sym">&#x1D4A2;</span>Auxiliary geometric primitives</h3>
+          <p>Generates synthetic projections of simple shapes with exact 3D labels <em>on the fly</em>, including
+            dense clusters, occlusion and uneven illumination, to teach multi-view geometry cheaply.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Results ============ -->
+  <section id="results" class="section wrap">
+    <div class="narrow">
+      <h2 class="h-section"><span class="h-num">04</span>Results</h2>
+      <p>
+        Zero-shot, intra-instance detection on three real-world cryo-ET datasets. Prompts and targets come from the
+        same tomogram; results are the mean &plusmn; std over 10 trials. Runtime and peak VRAM are measured on one
+        NVIDIA RTX 6000 Ada.
+      </p>
+    </div>
+
+    <div class="results" data-results>
+      <div class="filters" role="group" aria-label="Result filters">
+        <div class="seg" role="radiogroup" aria-label="Dataset" data-key="ds">
+          <button type="button" role="radio" aria-checked="false" data-v="czii">CZII</button>
+          <button type="button" role="radio" aria-checked="true" data-v="10304">EMPIAR-10304</button>
+          <button type="button" role="radio" aria-checked="false" data-v="10499">EMPIAR-10499</button>
+        </div>
+        <div class="seg seg-sm" role="radiogroup" aria-label="Number of prompts" data-key="p">
+          <span class="seg-label">Prompts</span>
+          <button type="button" role="radio" aria-checked="true" data-v="1">1</button>
+          <button type="button" role="radio" aria-checked="false" data-v="2">2</button>
+          <button type="button" role="radio" aria-checked="false" data-v="4">4</button>
+        </div>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-head">
+          <h3 class="chart-title">F1 vs. runtime</h3>
+          <p class="chart-sub">Up and to the left is better. Runtime on a log scale.</p>
+        </div>
+        <div class="chart" role="img" aria-label="Scatter plot of F1 score against runtime for each method"></div>
+        <div class="chart-tip" role="tooltip" hidden></div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="rtable">
+          <thead>
+            <tr>
+              <th scope="col" class="l">Method</th>
+              <th scope="col">mAP@0.5r <span class="dir">&uarr;</span></th>
+              <th scope="col">mAP@1r <span class="dir">&uarr;</span></th>
+              <th scope="col">F1 <span class="dir">&uarr;</span></th>
+              <th scope="col">Runtime (s) <span class="dir">&darr;</span></th>
+              <th scope="col">VRAM (GB) <span class="dir">&darr;</span></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <p class="table-note">
+          Bold marks the best cryo-ET method per column. <sup>&dagger;</sup>Equipped with our multiclass visual prompt
+          encoder &#x2130;<sub>Prompt</sub>. n.a.: the method gives no confidence scores, so mAP cannot be computed.
+          Cross-instance, multiclass and ablation results are in the paper.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Qualitative ============ -->
+  <section id="qualitative" class="section section-tint">
+    <div class="wrap">
+      <div class="narrow">
+        <h2 class="h-section"><span class="h-num">05</span>In the tomogram</h2>
+        <p>
+          FullTilt never sees the tomogram, but its 3D predictions land on the particles when drawn on reconstructed
+          Z-slices. The same EMPIAR-10304 tomogram, single prompt, boxes shown within &plusmn;<i>r</i> of each slice.
+        </p>
+      </div>
+
+      <div class="tabs" data-tabs>
+        <div class="seg" role="tablist" aria-label="Method">
+          <button type="button" role="tab" aria-selected="true" aria-controls="q-ft" id="t-ft">FullTilt</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="q-gt" id="t-gt">Ground truth</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="q-tt" id="t-tt">TomoTwin</button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="q-pp" id="t-pp">ProPicker</button>
+        </div>
+        <figure class="figure">
+          <div class="figure-card figure-stack">
+            <img role="tabpanel" id="q-ft" aria-labelledby="t-ft" src="static/img/tomo_10304_fulltilt.webp" alt="FullTilt detections on tomogram slices z=112, 118 and 124" loading="lazy" width="2200" height="925">
+            <img role="tabpanel" id="q-gt" aria-labelledby="t-gt" src="static/img/tomo_10304_gt.webp" alt="Ground-truth particles on tomogram slices" loading="lazy" width="2200" height="925" hidden>
+            <img role="tabpanel" id="q-tt" aria-labelledby="t-tt" src="static/img/tomo_10304_tomotwin.webp" alt="TomoTwin detections on tomogram slices" loading="lazy" width="2200" height="925" hidden>
+            <img role="tabpanel" id="q-pp" aria-labelledby="t-pp" src="static/img/tomo_10304_propicker.webp" alt="ProPicker detections on tomogram slices" loading="lazy" width="2200" height="925" hidden>
+          </div>
+          <figcaption data-caption>
+            <strong>FullTilt</strong> &middot; 0.23&nbsp;s, from the tilt-series alone.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Limitations ============ -->
+  <section class="section wrap narrow">
+    <h2 class="h-section"><span class="h-num">06</span>Limitations</h2>
+    <p>
+      FullTilt struggles with small macromolecules: AP is near zero for every evaluated protein below 100&nbsp;kDa, in
+      line with the small-object difficulties of DETR-like detectors. Zero-shot performance is still below fully
+      supervised methods, likely due to the gap between simulated training data and real tomograms, which motivates
+      real-world fine-tuning and larger-scale training with FullTilt as a foundation.
+    </p>
+  </section>
+
+  <!-- ============ BibTeX ============ -->
+  <section id="bibtex" class="section wrap narrow">
+    <h2 class="h-section"><span class="h-num">07</span>BibTeX</h2>
+    <div class="bib">
+      <button class="copy" type="button" data-copy="#bib-src">Copy</button>
+<pre id="bib-src"><code>@inproceedings{ho2026fulltilt,
+  title     = {At FullTilt: Real-Time Open-Set 3D Macromolecule Detection
+               Directly from Tilted 2D Projections},
+  author    = {Ho, Ming-Yang and Bartesaghi, Alberto},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>&copy; 2026 Ming-Yang Ho &amp; Alberto Bartesaghi &middot; Duke University</span>
+    <a href="https://github.com/Kaminyou/FullTilt">github.com/Kaminyou/FullTilt</a>
+  </div>
+</footer>
+
+<script src="static/js/data.js"></script>
+<script src="static/js/main.js"></script>
+</body>
+</html>
