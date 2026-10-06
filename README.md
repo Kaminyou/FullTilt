@@ -12,8 +12,6 @@ Duke University<br>
 
 [[`Paper (arxiv)`](https://arxiv.org/abs/2604.10766)] [[`Paper (official)`](https://neurips.cc/virtual/2026/loc/sydney/poster/154302)] [[`Project Page`](https://kaminyou.com/FullTilt/)]
 <br><br><image src="./images/teaser.jpg"/>
-<br><image src="./images/framework.jpg"/>
-
 </div>
 
 ## Environment Preparation
