@@ -1,0 +1,10 @@
+{
+  "train": [],
+  "train_random": [
+    {
+      "training_generation_num": 100,
+      "dataset_mode": "random_coco"
+    }
+  ],
+  "val": []
+}
