@@ -211,7 +211,7 @@ def shuffle_data(
     targets: t.List[t.Dict[str, t.Any]],
     prompts: t.List[t.Dict],
     random_order_aug: bool = False,
-    subsample_val: bool = True,
+    subsample_val: bool = False,
     max_training_tilts: int = 31,
     min_training_tilts: int = 21,
     max_eval_tilts: int = 31,
