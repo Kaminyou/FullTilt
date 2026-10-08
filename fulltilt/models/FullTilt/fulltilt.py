@@ -871,7 +871,11 @@ class SetCriterion(nn.Module):
             )
             target['labels'] = new_labels
 
-        indices = self.matcher(outputs_without_aux, targets)
+        # NOTE: in fulltilt self.losses should be [] and return_indices should be False
+        if self.losses or return_indices:
+            indices = self.matcher(outputs_without_aux, targets)
+        else:
+            indices = None
 
         if return_indices:
             indices0_copy = indices
@@ -887,6 +891,7 @@ class SetCriterion(nn.Module):
 
         # Compute all the requested losses
         losses = {}
+        # NOTE: the following loop should not be executed in fulltilt
         for loss in self.losses:
             print(f'loss: {loss}')
             losses.update(self.get_loss(loss, outputs, targets, indices, num_boxes))
@@ -953,9 +958,17 @@ class SetCriterion(nn.Module):
         # intermediate layer.
         if 'aux_outputs' in outputs:
             for idx, aux_outputs in enumerate(outputs['aux_outputs']):
-                indices = self.matcher(aux_outputs, targets)
+
+                # NOTE: in fulltilt self.losses should be [] and return_indices should be False
+                if self.losses or return_indices:
+                    indices = self.matcher(aux_outputs, targets)
+                else:
+                    indices = None
+
                 if return_indices:
                     indices_list.append(indices)
+
+                # NOTE: the following loop should not be executed in fulltilt
                 for loss in self.losses:
                     kwargs = {}
                     l_dict = self.get_loss(loss, aux_outputs, targets, indices, num_boxes, **kwargs)
@@ -990,15 +1003,23 @@ class SetCriterion(nn.Module):
         # interm_outputs loss
         if 'interm_outputs' in outputs:
             interm_outputs = outputs['interm_outputs']
-            indices = self.matcher(interm_outputs, targets)
+
+            # NOTE: in fulltilt self.losses should be [] and return_indices should be False
+            if self.losses or return_indices:
+                indices = self.matcher(interm_outputs, targets)
+            else:
+                indices = None
 
             if return_indices:
                 indices_list.append(indices)
+
+            # NOTE: the following loop should not be executed in fulltilt
             for loss in self.losses:
                 kwargs = {}
                 l_dict = self.get_loss(loss, interm_outputs, targets, indices, num_boxes, **kwargs)
                 l_dict = {k + '_interm': v for k, v in l_dict.items()}
                 losses.update(l_dict)
+
             if 'gt_3d' in outputs:
                 interm_outputs_3d = {
                     'pred_logits': interm_outputs['pred_logits_group'],
