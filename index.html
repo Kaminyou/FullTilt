@@ -85,6 +85,7 @@
   <section id="demo" class="demo">
     <div class="wrap">
       <div class="tagline">
+        <p class="tagline-label">TL;DR</p>
         <p class="tagline-main">The <em>first</em> end-to-end cryo&#8209;ET 3D&nbsp;detector that works directly on the&nbsp;tilt-series.</p>
         <p class="tagline-sub">No tomogram inference, no sliding windows: all tilt images go in together, and 3D particle coordinates come out in under a second.</p>
       </div>
@@ -219,7 +220,7 @@
     <figure class="figure">
       <div class="figure-card"><img src="static/img/example.webp" alt="Three tilt images at −45°, 0° and 45° with thyroglobulin particles boxed, next to one tomogram slice." loading="lazy" width="2149" height="576"></div>
       <figcaption>
-        <strong>2D tilt-series vs. 3D tomogram</strong> (CZII, <code>TS_6_6</code>). In single tilt images, particles are
+        <strong>2D tilt-series vs. 3D tomogram</strong> (DS-10440, <code>TS_6_6</code>). In single tilt images, particles are
         noisy, overlapping and sometimes occluded (red arrow); in a tomogram slice they are separated in depth.
       </figcaption>
     </figure>
@@ -231,7 +232,8 @@
       <div class="narrow">
         <h2 class="h-section"><span class="h-num">03</span>Method</h2>
         <p>
-          FullTilt is a DETR-style encoder&ndash;decoder. A 2D backbone encodes every tilt image; four new components turn
+          FullTilt is the first open-set, promptable multi-view DETR architecture for 3D detection. A 2D backbone
+          encodes every tilt image; four new components turn
           those 2D features into 3D detections of whatever the user prompts for.
         </p>
       </div>
@@ -281,7 +283,7 @@
     <div class="results" data-results>
       <div class="filters" role="group" aria-label="Result filters">
         <div class="seg" role="radiogroup" aria-label="Dataset" data-key="ds">
-          <button type="button" role="radio" aria-checked="false" data-v="czii">CZII</button>
+          <button type="button" role="radio" aria-checked="false" data-v="czii">DS-10440</button>
           <button type="button" role="radio" aria-checked="true" data-v="10304">EMPIAR-10304</button>
           <button type="button" role="radio" aria-checked="false" data-v="10499">EMPIAR-10499</button>
         </div>

@@ -102,7 +102,7 @@
   };
   var CHART_ORDER = ["Zeng", "CryoSAM", "ProPicker", "TomoTwin", "FullTilt"];
   var TABLE_ORDER = ["DETR3D", "PETR", "Zeng", "TomoTwin", "CryoSAM", "ProPicker", "FullTilt"];
-  var DS_NAME = { czii: "CZII", "10304": "EMPIAR-10304", "10499": "EMPIAR-10499" };
+  var DS_NAME = { czii: "DS-10440", "10304": "EMPIAR-10304", "10499": "EMPIAR-10499" };
   var SVGNS = "http://www.w3.org/2000/svg";
 
   function el(tag, attrs, parent, text) {
