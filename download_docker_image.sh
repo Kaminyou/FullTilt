@@ -50,7 +50,6 @@ echo "Starting setup..."
 echo "-----------------------------------"
 
 # Docker Image
-download_and_verify "1tV6-glutUg8EEFrehy7KtK-951MdWxC5" "." "fulltilt.tar" "ce768ff87ccce1b4a75056f78e73e9ba7885e24d6647bfb9d14bb1f7fe67eeb0"
-download_and_verify "1mHBZTByo9eFlXv1IpzSdNNywLeF5X62J" "." "fulltilt_training.tar" "b4f39d1d6555b858fe77169ab11841b9e58ae196568d1cead4b542fabf1da732"
+download_and_verify "1mHBZTByo9eFlXv1IpzSdNNywLeF5X62J" "." "fulltilt_training.tar" "684be47579218d649f5ffccd7f0ab5d27e192c50744d691abb1f35a3d9c82424"
 
 echo "All files downloaded and verified successfully!"

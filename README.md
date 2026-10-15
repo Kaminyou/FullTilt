@@ -20,7 +20,6 @@ Note: some dependencies' versions can be modified to match your own requirement.
 ```sh
 # please make sure you have gdown (pip install gdown)
 ./download_docker_image.sh
-docker load < fulltilt.tar  # for inference only
 docker load < fulltilt_training.tar  # for training and inference
 ```
 
@@ -42,6 +41,19 @@ export TORCH_CUDA_ARCH_LIST="7.0;7.5;8.0;8.6;8.9;9.0+PTX"
 pip install -e . --no-build-isolation
 ```
 
+### Sanity check
+#### E2E Test (Sanity Check for Inference)
+```sh
+./prepare_e2e_test.sh
+pytest tests/test_e2e_pipeline.py -v -s
+```
+
+#### Sanity Check for Training
+```sh
+./train.sh 1 configs/cfg_cryo.py configs/dataset.json outputs_test
+# You can stop it after some epochs
+```
+
 ## Get Started
 *Caveat: While FullTilt is an open-set detection framework, its current performance on diverse datasets is limited by the narrow training distribution of the simulation data. We recommend fine-tuning on your datasets if there is a significant distribution gap.*
 ### Intra-Instance Inference
@@ -61,12 +73,6 @@ For example
 ```
 #### Notes
 - A `--shm-size=8g` flag might be set for training if you are using the docker image.
-
-## E2E Test
-```sh
-./prepare_e2e_test.sh
-pytest tests/test_e2e_pipeline.py -v -s
-```
 
 ## Prepare data for training / fine-tuning (and evaluation in the training pipeline)
 Each dataset should be organized in the following format
