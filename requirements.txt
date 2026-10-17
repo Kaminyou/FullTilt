@@ -1,0 +1,7 @@
+torch
+torchvision
+addict
+yapf
+timm
+numpy
+opencv-python
