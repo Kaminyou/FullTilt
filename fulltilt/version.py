@@ -4,4 +4,4 @@
 # Department of Computer Science, Trinity College of Arts & Sciences, Duke
 # University.
 # ========================================================================
-__version__ = '0.1.0'
+__version__ = '1.0.0'

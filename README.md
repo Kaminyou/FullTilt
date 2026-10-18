@@ -1,5 +1,5 @@
 [![python](https://img.shields.io/badge/Python-3.12-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org)
-![version](https://img.shields.io/badge/version-0.1.0-red)
+![version](https://img.shields.io/badge/version-1.0.0-red)
 ![linting workflow](https://github.com/Kaminyou/FullTilt/actions/workflows/main.yml/badge.svg)
 <div align="center">
 
